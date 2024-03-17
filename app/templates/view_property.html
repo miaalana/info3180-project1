@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<body>
+    <div class="view">
+        <div class = "photo">
+            <img src="{{ url_for('uploaded_file', filename =property.photo) }}">
+        </div>
+        
+        <div class = "details">
+            <h2>{{ property.title }}</h2>
+            <br>
+            <div class="info-set">
+            <p><span class ="price">{{ property.price }}</p>
+            <p><span class ="type">{{ property.type }}</p>
+            </div>
+            <br>
+            <p>{{ property.description }}</p>
+            <br>
+            
+            <div class="info-set">
+            <p><span class ="location"><img src="{{ url_for('uploaded_file', filename ='bedicon.png') }}" alt="bedicon"> {{ property.bedrooms }} Bedrooms</p>
+            <p><span class ="location"><img src="{{ url_for('uploaded_file', filename ='bathicon.png') }}" alt="bathicon"> {{ property.bathrooms }} Bathrooms</p>
+            </div>
+            <br>
+            
+            <p><span class ="location"><img src="{{ url_for('uploaded_file', filename ='icon.png') }}" alt="locicon"> {{ property.location }}</p>
+                    <p></p>
+            
+            <button type="submit" name="submit" class="btn btn-primary">Email Realtor</button>
+        </div>
+        
+    </div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<head>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/app.css') }}"/>
+    {% include 'flash_messages.html' %}
+    <h1>Add New Property</h1>
+</head>
+<body>
+<form class="add_property m-auto" enctype='multipart/form-data' method="post">
+    {{ form.csrf_token }}
+    
+    <div class="form-floating">
+        <p>Property Title</p>
+        {{ form.title(class='form-control', placeholder="Property Title") }}
+    </div>
+    
+    <div class="form-floating">
+        <p>Description</p>
+        {{ form.description(class='form-control', placeholder="Description") }}
+    </div>
+    <div class = "container1">
+    <div class="form-floating">
+        <p>No. of Bedrooms</p>
+        {{ form.bedrooms(class='form-control', placeholder="No. of Bedrooms") }}
+    </div>
+    
+    <div class="form-floating">
+        <p>No. of Bathrooms</p>
+        {{ form.bathrooms(class='form-control', placeholder="No. of Bathrooms") }}
+    </div>
+    
+    <div class="form-floating">
+        <p>Price</p>
+        {{ form.price(class='form-control', placeholder="Price") }}
+    </div>
+    
+    <div class="form-floating">
+        <p>Property Type</p>
+        {{ form.type(class='custom-select', placeholder="Property Type") }}
+    </div>
+    
+    <div class="form-floating">
+        <p>Location</p>
+        {{ form.location(class='form-control', placeholder="Location") }}
+    </div>
+    </div>
+    <div class = 'images'>
+        <p>Photo</p>
+        {{ form.photo }}
+    </div>
+
+      <button type="submit" name="submit" class="btn btn-primary">Add Property</button>
+    </form>
+</form>
+</body>
+{% endblock %}
